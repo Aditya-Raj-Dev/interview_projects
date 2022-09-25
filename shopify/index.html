@@ -149,23 +149,34 @@
 </html>
 <script>
     let head= document.getElementById("head")
+
+    let dec=document.getElementById("dec")
+
     head.innerText="Aashirwad Atta - Whole Weat,10 kg Pouch"
     let total=document.getElementById("total")
      let amount=209;
     let quantity=document.getElementById("quantity")
      quantity.innerText=1
+     
 
      let inc=document.getElementById("inc")
      inc.addEventListener("click",function(){
+      
         quantity.innerText++
-
         total.innerText=`Rs ${quantity.innerText*amount}`
      })
 
-     let dec=document.getElementById("dec")
+     
      dec.addEventListener("click",function(){
+        if(quantity.innerText===0){
+          dec.disabled=true
+       }
+       else{
         quantity.innerText--
-        total.innerText=`Rs ${quantity.innerText*amount}`
+         total.innerText=`Rs ${quantity.innerText*amount}`
+       }
+           
+        
      })
 
     let price = document.getElementById("price")
